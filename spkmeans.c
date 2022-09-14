@@ -111,7 +111,6 @@ SPK_INFO* execute1(int kToCheck, char *goal, char *filename){
 
     /*goal="wam"*/
     if(strcmp(goal,"wam")==0){
-        printf("%i",stage);
         printMatrix(W,numOfVec,numOfVec);
         freeFunc();
         return spk_info;
@@ -533,16 +532,16 @@ void freeFunc() {
         freeMatrix(vectors, numOfVec);
     }
     free(vectors);
-    if ((stage >= 2) && (W != NULL)) {
-        freeMatrix(W, numOfVec);
+    if (((stage >= 2)|| (stage==-1)) && (V != NULL)) {
+        freeMatrix(V, numOfVec);
     }
     free(W);
-    if ((stage >= 3) && (D != NULL)) {
-        freeMatrix(D, numOfVec);
+    if ((stage >= 3) && (W != NULL)) {
+        freeMatrix(W, numOfVec);
     }
     free(D);
-    if (((stage >= 4)|| (stage==-1)) && (V != NULL)) {
-        freeMatrix(V, numOfVec);
+    if (((stage >= 4)) && (D != NULL)) {
+        freeMatrix(D, numOfVec);
     }
     free(V);
     if ((stage >= 5) && (A != NULL)) {
