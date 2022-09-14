@@ -49,6 +49,8 @@ void nullMatrix(int n, double ** p);
 
 /*The Normalized Spectral Clustering Algorithm*/
 SPK_INFO* execute1(int kToCheck, char *goal, char *filename){
+    
+    initSpkInfo();
 
     /*read input*/
     find_numOfVec_and_dim(filename);
@@ -56,7 +58,6 @@ SPK_INFO* execute1(int kToCheck, char *goal, char *filename){
     readInput(filename ,vectors);
 
     /*creating objects for later use*/
-    initSpkInfo();
     eigenvalues = (double*)malloc(sizeof(double)*numOfVec);
     if (eigenvalues == NULL) {
         stage=-2;
